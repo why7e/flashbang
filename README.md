@@ -1,9 +1,15 @@
-# Unduck
+# Unduck but i stole it 
+
+My daily driver search router. Project forked so I can make and host the changes that I want to see instantly.
+- Dark/Light mode support (Stops page from flashing the wrong colour after every search)
+- Hosted on Cloudflare pages (Slightly faster than Vercel #placebo)
+
+# Motivation
 
 DuckDuckGo's bang redirects are too slow. Add the following URL as a custom search engine to your browser. Enables all of DuckDuckGo's bangs to work, but much faster.
 
 ```
-https://unduck.link?q=%s
+https://search.gphua.com?q=%s
 ```
 
 ## How is it that much faster?
