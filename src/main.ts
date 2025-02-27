@@ -12,7 +12,7 @@ function noSearchDefaultPageRender() {
           <input 
             type="text" 
             class="url-input"
-            value="https://gphua.com/search?q=%s"
+            value="https://search.gphua.com?q=%s"
             readonly 
           />
           <button class="copy-button">
