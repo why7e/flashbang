@@ -27,6 +27,38 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Light mode colors (default) */
+  --background-color: #ffffff;
+  --text-color: #1a1a1a;
+  --link-color: #444444;
+  --link-hover-color: #888888;
+  --border-color: #ddd;
+  --input-background: #f5f5f5;
+  --button-hover-background: #f0f0f0;
+  --button-active-background: #e5e5e5;
+  --footer-text-color: #666;
+  --footer-link-hover-color: #333;
+  --button-text-color: #666;
+  --success-color: #28a745;
+}
+
+/* Dark mode colors */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #121212;
+    --text-color: #e0e0e0;
+    --link-color: #a0a0a0;
+    --link-hover-color: #ffffff;
+    --border-color: #444;
+    --input-background: #2a2a2a;
+    --button-hover-background: #3a3a3a;
+    --button-active-background: #444444;
+    --footer-text-color: #999;
+    --footer-link-hover-color: #ccc;
+    --button-text-color: #a0a0a0;
+    --success-color: #2ebd4e;
+  }
 }
 
 * {
@@ -45,7 +77,9 @@ body {
   line-height: 1.5;
   font-weight: 400;
   font-size: 16px;
-  color: #1a1a1a;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1,
@@ -59,10 +93,11 @@ h6 {
 }
 
 a {
-  color: #444444;
+  color: var(--link-color);
+  transition: color 0.2s ease;
 }
 a:hover {
-  color: #888888;
+  color: var(--link-hover-color);
 }
 
 button {
@@ -95,15 +130,16 @@ textarea {
 /* Update url-input width to be 100% since container will control max width */
 .url-input {
   padding: 8px 12px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-color);
   border-radius: 4px;
   width: 100%;
-  background: #f5f5f5;
+  background: var(--input-background);
+  color: var(--text-color);
 }
 
 .copy-button {
   padding: 8px;
-  color: #666;
+  color: var(--button-text-color);
   border-radius: 4px;
   transition: all 0.2s;
   display: flex;
@@ -112,11 +148,11 @@ textarea {
 }
 
 .copy-button:hover {
-  background: #f0f0f0;
+  background: var(--button-hover-background);
 }
 
 .copy-button:active {
-  background: #e5e5e5;
+  background: var(--button-active-background);
 }
 
 .copy-button img {
@@ -125,7 +161,7 @@ textarea {
 }
 
 .copy-button.copied {
-  background: #28a745;
+  background: var(--success-color);
 }
 
 /* Add footer styles */
@@ -136,15 +172,15 @@ textarea {
   right: 0;
   text-align: center;
   font-size: 14px;
-  color: #666;
+  color: var(--footer-text-color);
 }
 
 .footer a {
-  color: #666;
+  color: var(--footer-text-color);
   text-decoration: none;
   font-weight: 500;
 }
 
 .footer a:hover {
-  color: #333;
+  color: var(--footer-link-hover-color);
 }
