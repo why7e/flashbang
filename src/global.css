@@ -41,6 +41,7 @@
   --footer-link-hover-color: #333;
   --button-text-color: #666;
   --success-color: #28a745;
+  --img-filter: none;
 }
 
 /* Dark mode colors */
@@ -58,6 +59,7 @@
     --footer-link-hover-color: #ccc;
     --button-text-color: #a0a0a0;
     --success-color: #2ebd4e;
+    --img-filter: invert(1);
   }
 }
 
@@ -158,6 +160,7 @@ textarea {
 .copy-button img {
   width: 20px;
   height: 20px;
+  filter: var(--img-filter);
 }
 
 .copy-button.copied {

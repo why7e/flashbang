@@ -6,8 +6,9 @@ function noSearchDefaultPageRender() {
   app.innerHTML = `
     <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
       <div class="content-container">
-        <h1>Und*ck 2</h1>
-        <p>DuckDuckGo's bang redirects are too slow and Und*ck does not respect browser themes. Add the following URL as a custom search engine to your browser. Enables <a href="https://duckduckgo.com/bang.html" target="_blank">all of DuckDuckGo's bangs.</a></p>
+        <h1>Und7ck</h1>
+        <p><a href="https://github.com/why7e" target="_blank">why7e's</a> personal search router, enabling lightning-fast <a href="https://duckduckgo.com/bang.html" target="_blank">bang</a> queries.
+        Add the following URL as a custom search engine to your browser.</p>
         <div class="url-container"> 
           <input 
             type="text" 
