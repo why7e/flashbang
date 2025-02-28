@@ -5,6 +5,25 @@ function noSearchDefaultPageRender() {
   const app = document.querySelector<HTMLDivElement>("#app")!;
   app.innerHTML = `
     <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
+        <div class="header">
+        <button class="settings-button">
+          <div class="settings-icon">
+            <img src="/settings.svg" alt="Settings" />
+          </div>
+          <span class="settings-text">Settings</span>
+        </button>
+        
+        <div class="settings-menu">
+          <div class="menu-section">
+            <div class="menu-title">Default search engine:</div>
+            <div class="search-options">
+              <button class="search-option" data-bang="g">Google</button>
+              <button class="search-option" data-bang="ddg">DuckDuckGo</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
       <div class="content-container">
         <h1>Und7ck</h1>
         <p><a href="https://github.com/why7e" target="_blank">why7e's</a> personal search router, using utilising your browser cache for lightning-fast <a href="https://duckduckgo.com/bang.html" target="_blank">bang</a> queries.<br>
@@ -20,12 +39,9 @@ function noSearchDefaultPageRender() {
             <img src="/clipboard.svg" alt="Copy" />
           </button>
         </div>
-        <div class="default-search-container">
-          <p>Default search:</p>
-          <div class="search-options">
-            <button class="search-option" data-bang="g">Google</button>
-            <button class="search-option" data-bang="ddg">DuckDuckGo</button>
-          </div>
+        <div class="demo-container">
+          <p>Try it out!</p>
+          <button class="demo-button">"capybaras !gi"</button>
         </div>
       </div>
       <footer class="footer">
@@ -47,21 +63,46 @@ function noSearchDefaultPageRender() {
     }, 2000);
   });
 
-    // Default search engine selection
+  // Settings menu functionality
+  const settingsButton = app.querySelector<HTMLButtonElement>(".settings-button")!;
+  const settingsMenu = app.querySelector<HTMLDivElement>(".settings-menu")!;
+  settingsButton.addEventListener("click", (e) => {
+    e.stopPropagation();
     const searchOptions = app.querySelectorAll<HTMLButtonElement>(".search-option");
+    const currentBang = localStorage.getItem("default-bang") ?? "g";
     searchOptions.forEach(option => {
-      option.addEventListener("click", () => {
-        // Remove active class from all options
-        searchOptions.forEach(opt => opt.classList.remove("active"));
-        
-        // Add active class to clicked option
+      const optionBang = option.getAttribute("data-bang") || "";
+      if (optionBang === currentBang) {
         option.classList.add("active");
-        
-        // Save preference to localStorage
-        const bang = option.getAttribute("data-bang") || "g";
-        localStorage.setItem("default-bang", bang);
-      });
+      } else {
+        option.classList.remove("active");
+      }
     });
+    settingsMenu.classList.toggle("visible");
+  });
+  document.addEventListener("click", (e) => {
+    if (settingsMenu.classList.contains("visible") && !settingsMenu.contains(e.target as Node)) {
+      settingsMenu.classList.remove("visible");
+    }
+  });
+
+  // Default search engine selection
+  const searchOptions = app.querySelectorAll<HTMLButtonElement>(".search-option");
+  searchOptions.forEach(option => {
+    option.addEventListener("click", () => {
+      searchOptions.forEach(opt => opt.classList.remove("active"));
+      option.classList.add("active");
+      const bang = option.getAttribute("data-bang") || "g";
+      localStorage.setItem("default-bang", bang);
+    });
+  });
+
+  // Demo button functionality
+  const demoButton = app.querySelector<HTMLButtonElement>(".demo-button")!;
+  demoButton.addEventListener("click", () => {
+    const currentUrl = window.location.href.split('?')[0];
+    window.location.href = `${currentUrl}?q=capybaras%20!gi`;
+  });
 }
 
 const LS_DEFAULT_BANG = localStorage.getItem("default-bang") ?? "g";
