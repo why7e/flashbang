@@ -187,3 +187,42 @@ textarea {
 .footer a:hover {
   color: var(--footer-link-hover-color);
 }
+
+/* Default search engine selection styles */
+.default-search-container {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.default-search-container p {
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: var(--footer-text-color);
+}
+
+.search-options {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.search-option {
+  padding: 8px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  color: var(--button-text-color);
+  background: var(--input-background);
+  transition: all 0.2s ease;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.search-option:hover {
+  background: var(--button-hover-background);
+}
+
+.search-option.active {
+  border-color: var(--success-color);
+  background-color: rgba(46, 189, 78, 0.1);
+  color: var(--success-color);
+}
