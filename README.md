@@ -3,6 +3,7 @@
 My daily driver search router. Project forked so I can make and host the changes that I want to see instantly.
 - Dark/Light mode support (Stops page from flashing the wrong colour after every search)
 - Hosted on Cloudflare pages (Slightly faster than Vercel #placebo)
+- Default search engine selection (Cached permanently in localStorage)
 
 # Motivation
 
