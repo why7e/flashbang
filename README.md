@@ -1,11 +1,12 @@
-# Unduck but i stole it 
+# Unduck but its EVEN FASTER
 
 My daily driver search router. Project forked so I can make and host the changes that I want to see instantly.
+- 60% reduced dictionary size vs Unduck & DuckDuckGo
+- Popular bangs are cached
+- Lazy loading bang dictionary
 - Dark/Light mode support (Stops page from flashing the wrong colour after every search)
 - Hosted on Cloudflare pages (Slightly faster than Vercel #placebo)
 - Default search engine selection (Cached permanently in localStorage)
-- 60% reduced dictionary size vs Unduck & DuckDuckGo
-- Lazy loading dictionary when needed (Popular bangs are cached)
 
 # Motivation
 

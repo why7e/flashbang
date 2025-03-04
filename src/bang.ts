@@ -1,4 +1,4 @@
-// This file was (mostly) ripped from https://duckduckgo.com/bang.js
+// Debloated dictionary, originally from https://duckduckgo.com/bang.js
 
 export const bangs = [
   {
