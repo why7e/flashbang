@@ -1,5 +1,23 @@
-import { bangs } from "./bang";
 import "./global.css";
+
+const quickBangs = [
+  {
+    t: "g",
+    u: "https://www.google.com/search?q={{{s}}}",
+  },
+  {
+    t: "ddg",
+    u: "http://duckduckgo.com/?q={{{s}}}",
+  },
+  {
+    t: "yt",
+    u: "https://www.youtube.com/results?search_query={{{s}}}",
+  },
+  {
+    t: "gi",
+    u: "https://google.com/search?tbm=isch&q={{{s}}}&tbs=imgo:1",
+  }
+]
 
 function noSearchDefaultPageRender() {
   const app = document.querySelector<HTMLDivElement>("#app")!;
@@ -106,9 +124,10 @@ function noSearchDefaultPageRender() {
 }
 
 const LS_DEFAULT_BANG = localStorage.getItem("default-bang") ?? "g";
-const defaultBang = bangs.find((b) => b.t === LS_DEFAULT_BANG);
+const defaultBang = quickBangs.find((b) => b.t === LS_DEFAULT_BANG);
 
-function getBangredirectUrl() {
+
+async function getBangredirectUrl() {
   const url = new URL(window.location.href);
   const query = url.searchParams.get("q")?.trim() ?? "";
   if (!query) {
@@ -117,9 +136,29 @@ function getBangredirectUrl() {
   }
 
   const match = query.match(/!(\S+)/i);
-
   const bangCandidate = match?.[1]?.toLowerCase();
-  const selectedBang = bangs.find((b) => b.t === bangCandidate) ?? defaultBang;
+
+  let selectedBang;
+  
+  if (bangCandidate) {
+    // Use the quick cache when possible
+    const quickCandidate = quickBangs.find((b) => b.t === bangCandidate);
+    if (quickCandidate) {
+      selectedBang = quickCandidate;
+    } else {
+      // Dynamically load the big bangs list
+      const bang = await import('./bang');
+      const bangs = bang.bangs;
+      selectedBang = bangs.find((b) => b.t === bangCandidate);
+      
+      // Use defaults
+      if (!selectedBang) {
+        selectedBang = defaultBang;
+      }
+    }
+  } else {
+    selectedBang = defaultBang;
+  }
 
   // Remove the first bang from the query
   const cleanQuery = query.replace(/!\S+\s*/i, "").trim();
@@ -136,8 +175,8 @@ function getBangredirectUrl() {
   return searchUrl;
 }
 
-function doRedirect() {
-  const searchUrl = getBangredirectUrl();
+async function doRedirect() {
+  const searchUrl = await getBangredirectUrl();
   if (!searchUrl) return;
   window.location.replace(searchUrl);
 }

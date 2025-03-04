@@ -10363,10 +10363,6 @@ export const bangs = [
     u: "https://duckduckgo.com/?kl=de-de&q={{{s}}}",
   },
   {
-    t: "ddg",
-    u: "http://duckduckgo.com/?q={{{s}}}",
-  },
-  {
     t: "ddgee",
     u: "https://duckduckgo.com/?kl=ee-et&q={{{s}}}",
   },
@@ -18321,10 +18317,6 @@ export const bangs = [
     u: "https://gamegator.net/search.php?q={{{s}}}",
   },
   {
-    t: "g",
-    u: "https://www.google.com/search?q={{{s}}}",
-  },
-  {
     t: "g+",
     u: "https://plus.google.com/u/0/s/{{{s}}} ",
   },
@@ -18530,10 +18522,6 @@ export const bangs = [
   {
     t: "gigaom",
     u: "http://gigaom.com/?s={{{s}}}",
-  },
-  {
-    t: "gi",
-    u: "https://google.com/search?tbm=isch&q={{{s}}}&tbs=imgo:1",
   },
   {
     t: "gii",
@@ -53695,10 +53683,6 @@ export const bangs = [
   {
     t: "ytw",
     u: "http://tw.search.yahoo.com/search?p={{{s}}}",
-  },
-  {
-    t: "yt",
-    u: "https://www.youtube.com/results?search_query={{{s}}}",
   },
   {
     t: "yubnub",

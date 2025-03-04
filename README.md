@@ -4,6 +4,8 @@ My daily driver search router. Project forked so I can make and host the changes
 - Dark/Light mode support (Stops page from flashing the wrong colour after every search)
 - Hosted on Cloudflare pages (Slightly faster than Vercel #placebo)
 - Default search engine selection (Cached permanently in localStorage)
+- 60% reduced dictionary size vs Unduck & DuckDuckGo
+- Lazy loading dictionary when needed (Popular bangs are cached)
 
 # Motivation
 
