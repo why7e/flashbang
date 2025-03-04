@@ -16,6 +16,10 @@ const quickBangs = [
   {
     t: "gi",
     u: "https://google.com/search?tbm=isch&q={{{s}}}&tbs=imgo:1",
+  },
+  {
+    t: "cl",
+    u: "https://claude.ai/new?q={{{s}}}",
   }
 ]
 
