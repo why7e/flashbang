@@ -43,7 +43,7 @@ function noSearchDefaultPageRender() {
       </div>
       
       <div class="content-container">
-        <h1>Und7ck</h1>
+        <h1>Flashbang</h1>
         <p><a href="https://github.com/why7e" target="_blank">why7e's</a> personal search router, using utilising your browser cache for lightning-fast <a href="https://duckduckgo.com/bang.html" target="_blank">bang</a> queries.<br>
         Add the following URL as a custom search engine to your browser.</p>
         <div class="url-container"> 
