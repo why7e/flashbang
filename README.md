@@ -13,11 +13,11 @@ My daily driver search router. Project forked so I can make and host the changes
 DuckDuckGo's bang redirects are too slow. Add the following URL as a custom search engine to your browser. Enables all of DuckDuckGo's bangs to work, but much faster.
 
 ```
-https://search.gphua.com?q=%s
+https://flashbang.gphua.com?q=%s
 ```
 
 ## How is it that much faster?
 
 DuckDuckGo does their redirects server side. Their DNS is...not always great. Result is that it often takes ages.
 
-I solved this by doing all of the work client side. Once you've went to [search.gphua.com](https://search.gphua.com) once, the JS is all cache'd and will never need to be downloaded again. Your device does the redirects, not me.
+I solved this by doing all of the work client side. Once you've went to [flashbang.gphua.com](https://flashbang.gphua.com) once, the JS is all cache'd and will never need to be downloaded again. Your device does the redirects, not me.
