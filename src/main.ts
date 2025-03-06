@@ -54,7 +54,7 @@ function noSearchDefaultPageRender() {
           <input 
             type="text" 
             class="url-input"
-            value="https://search.gphua.com?q=%s"
+            value="https://flashbang.gphua.com?q=%s"
             readonly 
           />
           <button class="copy-button">
